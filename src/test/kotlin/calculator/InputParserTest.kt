@@ -42,4 +42,12 @@ class InputParserTest {
         assertThat(result).isEmpty()
     }
 
+    @Test
+    fun `음수 입력시 에러 발생`() {
+        val input = "-1,2,3"
+
+        assertThrows<IllegalArgumentException> {
+            parser.parse(input)
+        }
+    }
 }

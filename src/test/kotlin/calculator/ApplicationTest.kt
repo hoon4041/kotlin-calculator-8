@@ -16,10 +16,9 @@ class ApplicationTest : NsTest() {
     }
 
     @Test
-    fun `음수를 포함해도 정상적으로 덧셈된다`() {
+    fun `예외 테스트`() {
         assertSimpleTest {
-            run("-1,2,3")
-            assertThat(output()).contains("결과 : 4")
+            assertThrows<IllegalArgumentException> { runException("-1,2,3") }
         }
     }
 
@@ -30,8 +29,6 @@ class ApplicationTest : NsTest() {
             assertThat(output()).contains("결과 : 6")
         }
     }
-
-
 
         override fun runMain() {
         main()
